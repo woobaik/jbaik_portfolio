@@ -23,9 +23,17 @@ end
   )
 end
 
+
+3.times do |topic|
+  Topic.create!(
+    name: "SAMSUNG GALAXY"
+  )
+end
+
 3.times do |blog|
   Blog.create!(
-    title: "The Truth stays inside",
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero beatae sed ex aliquid culpa totam, debitis voluptate quas architecto inventore ullam accusamus fuga placeat error nostrum perspiciatis nihil quidem harum."
+       title: "The Truth stays inside",
+        body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero beatae sed ex aliquid culpa totam, debitis voluptate quas architecto inventore ullam accusamus fuga placeat error nostrum perspiciatis nihil quidem harum.",
+    topic_id: 2
   )
 end
