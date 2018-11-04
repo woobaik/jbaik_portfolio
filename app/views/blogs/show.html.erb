@@ -1,0 +1,15 @@
+<h1>
+  <%= @blog.title %>
+</h1>
+
+<h3>
+  <%= @blog.body   %>
+</h3>
+
+<h6>
+  Created <%= time_ago_in_words(@blog.created_at) %> ago
+</h6>
+
+<button><%= link_to @blog.status, toggle_status_blog_path(@blog) %></button>
+<button><%= link_to "edit post", edit_blog_path(@blog) %></button>
+<button><%= link_to "delete post", blog_path(@blog), method: :delete, data: {confirm: "Are you sure?"} %></button>
