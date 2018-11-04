@@ -1,3 +1,5 @@
+<button><%= link_to "NEW POST", new_blog_path %></button>
+
 <% @blogs.each do |blog| %>
 <ul>
   <li><%= link_to blog.title, blog_path(blog) %></li>

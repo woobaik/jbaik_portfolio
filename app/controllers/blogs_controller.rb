@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :find_blog, only: [:edit, :update, :show, :destroy, :toggle_status]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order("created_at DESC")
   end
 
   def new
@@ -51,7 +51,7 @@ class BlogsController < ApplicationController
       @blog.draft?
       @blog.published!
     end
-    redirect_to blogs_path
+    redirect_back(fallback_location: blogs_path)
   end
 
 

@@ -8,8 +8,12 @@
 
 <h6>
   Created <%= time_ago_in_words(@blog.created_at) %> ago
+  <% if @blog.created_at != @blog.updated_at %>
+      <h6> Updated at <%= time_ago_in_words(@blog.updated_at) %> ago</h6>
+  <% end %>
 </h6>
 
 <button><%= link_to @blog.status, toggle_status_blog_path(@blog) %></button>
-<button><%= link_to "edit post", edit_blog_path(@blog) %></button>
-<button><%= link_to "delete post", blog_path(@blog), method: :delete, data: {confirm: "Are you sure?"} %></button>
+<button><%= link_to "Edit post", edit_blog_path(@blog) %></button>
+<button><%= link_to "Delete post", blog_path(@blog), method: :delete, data: {confirm: "Are you sure?"} %></button>
+<button><%= link_to "Back to List", blogs_path %></button>
