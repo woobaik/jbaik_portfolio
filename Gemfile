@@ -55,6 +55,8 @@ group :development do
   gem "binding_of_caller"
   # https://github.com/rweng/pry-rails
   gem 'pry-rails', :group => :development
+  # https://github.com/plataformatec/devise
+  gem 'devise', '~> 4.5'
 end
 
 group :test do

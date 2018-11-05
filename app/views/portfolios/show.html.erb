@@ -5,6 +5,9 @@
 <h3>
   <%= @portfolio.body   %>
 </h3>
+<% @portfolio.technologies.each do |tech| %>
+  <h5>  <%= tech.name %> </h5>
+<% end %>
 
 <h6>
   Created <%= time_ago_in_words(@portfolio.created_at) %> ago

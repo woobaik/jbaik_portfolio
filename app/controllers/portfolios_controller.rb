@@ -8,6 +8,7 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio = Portfolio.new
+    2.times { @portfolio.technologies.build}
   end
 
   def create
@@ -22,10 +23,12 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
+    2.times { @portfolio.technologies.build}
+
   end
 
   def update
-    if @portfolio.update
+    if @portfolio.update(portfolio_params)
       flash[:success] = "Your portfolio post has been updated!"
       redirect_to portfolio_path(@portfolio)
     else
@@ -50,6 +53,6 @@ class PortfoliosController < ApplicationController
   end
 
   def portfolio_params
-    params.require(:portfolio).permit(:title, :substitle, :body, :main_image, :thumb_image)
+    params.require(:portfolio).permit(:title, :subtitle, :body, :main_image, :thumb_image, technologies_attributes: [:name])
   end
 end
