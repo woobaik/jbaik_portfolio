@@ -1,6 +1,7 @@
+<button><%= link_to "New Portfolio", new_portfolio_path %></button>
 <% @portfolios.each do |portfolio| %>
-  <h3><%= portfolio.title %></h3>
+  <h3><%= link_to portfolio.title, portfolio_path(portfolio) %></h3>
     <h6> <%= portfolio.subtitle %> </h6>
     <h6> <%= portfolio.body %> </h6>
-    <%= link_to image_tag(portfolio.thumb_image) %>
+    <%= link_to image_tag(portfolio.thumb_image), portfolio_path(portfolio) %>
 <% end %>

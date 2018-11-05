@@ -12,6 +12,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.topic = Topic.last
     if @blog.save
       flash[:success] = "Your blog post has been posed"
       redirect_to blog_path(@blog)
@@ -29,6 +30,7 @@ class BlogsController < ApplicationController
     if @blog.update
       flash[:success] = "Your blog post has been updated!"
       redirect_to blog_path(@blog)
+
     else
       flash[:fail] = "Oops, something wrong with this entry."
       render :edit
