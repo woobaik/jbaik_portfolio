@@ -1,3 +1,5 @@
+# generate initial url for dummy image
+
 module Placeholder
   extend ActiveSupport::Concern
 
